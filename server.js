@@ -7,13 +7,9 @@ const path = require("path");
 // Helper method for generating unique ids
 const uniqid = require("uniqid");
 
-// Port
 const PORT = process.env.PORT || 3001;
 
-// Creates new app with express
 const app = express();
-
-// Middleware
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
@@ -80,7 +76,7 @@ app.post("/api/notes", (req, res) => {
   }
 });
 
-// Delete route -> reads the db.json file, uses the json objects uniqids to match the object to be deleted, removes that object from the db.json file, then re-writes the db.json file
+
 app.delete("/api/notes/:id", (req, res) => {
   let id = req.params.id;
   let parsedData;
